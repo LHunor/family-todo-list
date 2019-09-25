@@ -2,8 +2,8 @@
 Simple family (multiuser) task planner, aka todo list.
 ## Functional requirements:
 ### For guests
-On the from page a [guest](#vocational-dictionary) can read the app's description with some screenshots, login to existings group or register and create new [group](#vocational-dictionary).  
-For simplified registration and joining to existing group a guest should obtain the invitation link from the group's [admin](#vocational-dictionary).
+On the from page a [guest](#vocational-dictionary) can read the app's description with some screenshots, login to existing groups or register and create new [group](#vocational-dictionary).  
+For simplified registration and joining to an existing group a guest should obtain the invitation link from the group's [admin](#vocational-dictionary).
 ### For users
 After the registration [user](#vocational-dictionary) can 
 * observe the [dashboard](#vocational-dictionary), which contains active [tasks](#vocational-dictionary)
@@ -14,7 +14,7 @@ After the registration [user](#vocational-dictionary) can
 * Read and write [comments](#vocational-dictionary)
 * Delete owned tasks
 ### For admins
-After registration of a new group its creator becomes admin. Besides user's funcions admin can  
+After registration of a new group its creator becomes the admin. Besides user's functions admin can  
 * invite and remove users
 * edit usernames and reset passwords
 * manage tags and stages
@@ -32,9 +32,9 @@ A task contains information that can be divided into three parts:
 * Password protection and secure storage
 
 ### Vocational dictionary
-* **Guest:** A person tho visits the site and did not register/log in
-* **User:** A registered person who is logged in to the site but doesn't have admin priveleges
-* **Admin:** A group creator, has more priveleges than a normal user
+* **Guest:** A person tho visits the site and has not registered/logged in
+* **User:** A registered person who is logged in to the site but doesn't have admin privileges
+* **Admin:** A group creator, has more privileges than a normal user
 * **Group:** In basic usage this equals family. Only group members have access to any information about that group
 * **Dashboard:** Front page for registered users. It contains main information about active tasks in convenient form (calendar, list)
 * **Task:** Tasks are the main units of the application used to keep things under control, simplify family workflow or even manage a project lifecycle. Task contents description can be found [here](#about-tasks)
