@@ -1,0 +1,3 @@
+INSERT INTO task(title, description, created_at, updated_at) VALUES('Mosogatás', 'Mosogasson már el vki pls...', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO task(title, description, created_at, updated_at) VALUES('Takarítás', 'Már épp ideje...', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+INSERT INTO task(title, description, created_at, updated_at) VALUES('Alvás', 'Zzz...', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
