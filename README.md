@@ -2,7 +2,7 @@
 Simple family (multiuser) task planner, aka todo list.
 ## Functional requirements:
 ### For guests
-On the from page a [guest](#vocational-dictionary) can read the app's description with some screenshots, login to existing groups or register and create new [group](#vocational-dictionary).  
+On the front page a [guest](#vocational-dictionary) can read the app's description with some screenshots, login to existing groups or register and create a new [group](#vocational-dictionary).  
 For simplified registration and joining to an existing group a guest should obtain the invitation link from the group's [admin](#vocational-dictionary).
 ### For users
 After the registration [user](#vocational-dictionary) can 
@@ -10,9 +10,9 @@ After the registration [user](#vocational-dictionary) can
 * search for tasks by title or [tags](#vocational-dictionary)
 * create and edit tasks
 * modify task's [stage](#vocational-dictionary) 
-* [(Re)assign a user](#vocational-dictionary) to a task
-* Read and write [comments](#vocational-dictionary)
-* Delete owned tasks
+* [(re)assign a user](#vocational-dictionary) to a task
+* read and write [comments](#vocational-dictionary)
+* delete owned tasks
 ### For admins
 After registration of a new group its creator becomes the admin. Besides user's functions admin can  
 * invite and remove users
@@ -22,7 +22,7 @@ After registration of a new group its creator becomes the admin. Besides user's 
 ### About tasks
 A task contains information that can be divided into three parts:
 * **Permanent:** task creation time, task owner
-* **Modifiable by owner:** taks title, description, [due date](#vocational-dictionary)
+* **Modifiable by owner:** task title, description, [due date](#vocational-dictionary)
 * **Mutable (can be modified by everyone):** task stage, assigned user, tags  
 ***
 ## Non-functional requirements
@@ -32,7 +32,7 @@ A task contains information that can be divided into three parts:
 * Password protection and secure storage
 
 ### Vocational dictionary
-* **Guest:** A person tho visits the site and has not registered/logged in
+* **Guest:** A person who is visiting the site and has not registered/logged in
 * **User:** A registered person who is logged in to the site but doesn't have admin privileges
 * **Admin:** A group creator, has more privileges than a normal user
 * **Group:** In basic usage this equals family. Only group members have access to any information about that group
@@ -47,7 +47,7 @@ A task contains information that can be divided into three parts:
 * **History:** History contains every change made to a task since it was created. Can be cleared by admins.
 ***
 # Example of use:
-Mother creates a new task "wash dishes", sets deadline to 6 p.m. and assign Son user to it. 
-Son1 leaves a comment "Can't do it, I have to do my Alkalmazások fejlesztése homework" and reassings the task to Son2
+Mother creates a new task "wash dishes", sets deadline to 6 p.m. and assigns Son1 user to it. 
+Son1 leaves a comment "Can't do it, I have to do my Alkalmazások fejlesztése homework" and reassings the task to Son2.  
 Son2 washes the dishes and marks the task as done.
 
