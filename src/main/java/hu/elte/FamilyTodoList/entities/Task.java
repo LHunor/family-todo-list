@@ -7,12 +7,10 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,7 +18,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class Task {
-    @javax.persistence.Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -38,4 +37,8 @@ public class Task {
     @Column
     @UpdateTimestamp
     private LocalDateTime updated_at;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable
+    private List<Tag> tags;
 }
