@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Tag {
+public class Stage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +25,7 @@ public class Tag {
     @NotNull
     private String name;
 
-    // Do we need creation and update timestamps?
-
-    @ManyToMany(mappedBy = "tags")
-    @JsonIgnore // to avoid recursion
+    @OneToMany(mappedBy = "stage")
+    @JsonIgnore
     private List<Task> tasks;
-
 }

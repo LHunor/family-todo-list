@@ -38,7 +38,17 @@ public class Task {
     @UpdateTimestamp
     private LocalDateTime updated_at;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "tasks_tags",
+            joinColumns = @JoinColumn(name = "tasks_id"),
+            inverseJoinColumns = @JoinColumn(name = "tags_id")
+    )
     private List<Tag> tags;
+
+    @ManyToOne
+    @JoinColumn(name = "stage_id")
+    private Stage stage;
 }
