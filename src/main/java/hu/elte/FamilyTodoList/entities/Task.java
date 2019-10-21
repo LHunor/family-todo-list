@@ -1,5 +1,6 @@
 package hu.elte.FamilyTodoList.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -51,4 +52,17 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "stage_id")
     private Stage stage;
+
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnore
+    private RestrictionType restrictionType;
+
+    @ManyToMany
+    @JoinTable(
+            name = "assignments",
+            joinColumns = @JoinColumn(name = "task_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> assignedUsers;
 }

@@ -2,8 +2,10 @@ package hu.elte.FamilyTodoList.controllers;
 
 import hu.elte.FamilyTodoList.entities.Tag;
 import hu.elte.FamilyTodoList.entities.Task;
+import hu.elte.FamilyTodoList.entities.User;
 import hu.elte.FamilyTodoList.repositories.TagRepository;
 import hu.elte.FamilyTodoList.repositories.TaskRepository;
+import hu.elte.FamilyTodoList.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,9 @@ public class TaskController {
 
     @Autowired
     private TagRepository tagRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("")
     public ResponseEntity<Iterable<Task>> getAll() {
@@ -106,4 +111,17 @@ public class TaskController {
         }
     }
     // ******************* ENDTAGS *******************
+
+    // ******************* ASSIGNED USERS ************
+
+    @GetMapping("/{id}/users")
+    public ResponseEntity<Iterable<User>> users(@PathVariable Integer id) {
+        Optional<Task> oTask = taskRepository.findById(id);
+        if (oTask.isPresent()) {
+            return ResponseEntity.ok(oTask.get().getAssignedUsers());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
