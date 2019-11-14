@@ -1,5 +1,11 @@
-<h2><a [routerLink]="'/dashboard'">Dashboard</a></h2>
-<h2><a [routerLink]="'/new'">New Task</a></h2>
-<h2><a [routerLink]="'/profile'">User Profile</a></h2>
+<h2><mat-toolbar color="primary">
+  <button mat-button routerLink="/">
+    <mat-icon>home</mat-icon>
+    Family ToDo List
+  </button>
+  <button mat-button routerLink="/dashboard">Dashboard</button>
+  <button mat-button routerLink="/new">New task</button>
+  <button mat-button routerLink="/profile">User Profile</button>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

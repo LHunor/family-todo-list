@@ -7,6 +7,9 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { NewTaskPageComponent } from './new-task-page/new-task-page.component';
 import { EditTaskPageComponent } from './edit-task-page/edit-task-page.component';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatIconModule, MatButtonModule } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,12 @@ import { UserProfilePageComponent } from './user-profile-page/user-profile-page.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
