@@ -10,6 +10,9 @@ import { UserProfilePageComponent } from './user-profile-page/user-profile-page.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatButtonModule } from '@angular/material';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TaskListComponent } from './task-list/task-list.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { NewCommentsListComponent } from './new-comments-list/new-comments-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     DashboardPageComponent,
     NewTaskPageComponent,
     EditTaskPageComponent,
-    UserProfilePageComponent
+    UserProfilePageComponent,
+    TaskListComponent,
+    CalendarComponent,
+    NewCommentsListComponent
   ],
   imports: [
     BrowserModule,
