@@ -1,4 +1,26 @@
-<p>This is dashboard page</p>
-<app-task-list></app-task-list>
-<app-calendar></app-calendar>
-<app-new-comments-list></app-new-comments-list>
+<div class="columns">
+	<div class="column is-two-thirds">
+		<section class="container">
+			<h3>Active tasks</h3>
+			<app-task-list></app-task-list>
+		</section>
+
+		<section class="container">
+			<h3>Comments</h3>
+			<app-new-comments-list></app-new-comments-list>
+		</section>
+
+	</div>
+	<div class="column">
+		<section class="container">
+			<h3>Calendar</h3>
+			<app-calendar></app-calendar>
+		</section>
+		<section class="container">
+			<h3>Assigned to me</h3>
+		</section>
+		<section class="container">
+			<h3>Owned tasks</h3>
+		</section>
+	</div>
+</div>
