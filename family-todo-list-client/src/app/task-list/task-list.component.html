@@ -1,22 +1,24 @@
-<div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Description</th>
-				<th>Stage</th>
-				<th>Created at</th>
-				<th>Owner</th>
-				<th>Tags</th>
-			</tr>
-		</thead>
-		<tr>
-			<td>Sample</td>
-			<td>This is a html-hardcoded task</td>
-			<td>New</td>
-			<td>01.01.01</td>
-			<td>Me</td>
-			<td>Yellow</td>
-		</tr>
-	</table>
+<div class="row">
+	<div class="col">
+		<h1 class="display-2">Active tasks</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Title</th>
+					<th scope="col">Description</th>
+					<th scope="col">Srage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let task of filteredTasks" (click)="onSelectTask(task)" [class.table-info]="task === selectedTask">
+					<th scope="row">{{task.id}}</th>
+					<td>{{task.title}}</td>
+					<td>{{task.description}}</td>
+					<td>{{task.stage}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
+Selected task: {{ selectedTask | json }}
