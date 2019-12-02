@@ -7,18 +7,24 @@
 					<th scope="col">#</th>
 					<th scope="col">Title</th>
 					<th scope="col">Description</th>
-					<th scope="col">Srage</th>
+					<th scope="col">Stage</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr *ngFor="let task of filteredTasks" (click)="onSelectTask(task)" [class.table-info]="task === selectedTask">
-					<th scope="row">{{task.id}}</th>
-					<td>{{task.title}}</td>
-					<td>{{task.description}}</td>
-					<td>{{task.stage}}</td>
+					<th scope="row">
+						{{ task.id }}
+						<div *ngIf="selectedTask">
+							<button mat-raised-button color="primary" (click)="onDeleteClick(task.id)">Delete</button>
+						</div>
+					</th>
+					<td>{{ task.title }}</td>
+					<td>{{ task.description }}</td>
+					<td>{{ task.stage }}</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
-Selected task: {{ selectedTask | json }}
+
+<stage-filter [stage]="selectedStage" (onChange)="onFilterChange($event)"></stage-filter>

@@ -14,26 +14,35 @@ export class TaskListComponent implements OnInit {
 
   tasks: Task[] = [];
 
-  constructor(private taskService: TaskService) { 
-  }
+  constructor(private taskService: TaskService) { }
 
-  ngOnInit() {
-  	this.selectedStage = '';
+  async ngOnInit(): Promise<void> {
+    this.selectedStage = '';
+    this.tasks = await this.taskService.getTasks();
   	this.filter();
   }
 
-  onFilterChange(stage) {
+  onFilterChange(stage: string) {
   	this.selectedStage = stage;
   	this.filter();
   }
 
-  onSelectTask(task) {
+  onSelectTask(task: Task) {
   	this.selectedTask = task;
   }
 
-  filter() {
+  onDeleteClick(id: number) {
+    this.taskService.deleteTask(id)
+    .then(async () => {
+      this.selectedTask = null;
+      this.tasks = await this.taskService.getTasks();
+      this.filter();
+    })
+  }
+
+  private filter():void {
   	this.filteredTasks = this.selectedStage === ''
-  	? this.tasks : this.tasks.filter(task => task.stage === this.selectedStage)
+  	? this.tasks : this.tasks.filter(task => task.stage === this.selectedStage);
   }
 
 }

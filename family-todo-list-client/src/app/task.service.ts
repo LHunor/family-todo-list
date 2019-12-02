@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Task } from "./task";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  tasks: Task[] = [
+  private taskUrl: string = 'http://localhost:8080/tasks';
+
+/*  tasks: Task[] = [
     {
       id: 1,
       title: "Mosogatas",
@@ -31,15 +35,27 @@ export class TaskService {
       description: "Por. Sziv. O. Zas.",
       stage: "Done",
     },
-  ];
+  ];*/
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getTasks() {
-  	return this.tasks;
+  getTasks(): Promise<Task[]> {
+    return this.http.get<Task[]>(`${this.taskUrl}`).toPromise();
   }
 
-  getTaskById(id) {
-  	return this.tasks.find(t => t.id == id);
+  getTask(id: number): Promise<Task> {
+    return this.http.get<Task>(`${this.taskUrl}/${id}`).toPromise();
+  }
+
+  createTask(task: Task): Promise<Task> {
+    return this.http.post<Task>(`${this.taskUrl}`, task).toPromise();
+  }
+
+  updateTask(task: Task): Promise<Task> {
+    return this.http.put<Task>(`${this.taskUrl}/${task.id}`, task).toPromise();
+  }
+
+  deleteTask(id: number): Promise<Task> {
+    return this.http.delete<Task>(`${this.taskUrl}/${id}`).toPromise();
   }
 }
