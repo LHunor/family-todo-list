@@ -18,6 +18,7 @@ import { UserProfilePageComponent } from './user-profile-page/user-profile-page.
 import { TaskListComponent } from './task-list/task-list.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NewCommentsListComponent } from './new-comments-list/new-comments-list.component';
+import { StageFilterComponent } from './stage-filter/stage-filter.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NewCommentsListComponent } from './new-comments-list/new-comments-list.
     UserProfilePageComponent,
     TaskListComponent,
     CalendarComponent,
-    NewCommentsListComponent
+    NewCommentsListComponent,
+    StageFilterComponent
   ],
   imports: [
     NgbModule,
