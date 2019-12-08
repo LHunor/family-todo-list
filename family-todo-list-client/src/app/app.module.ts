@@ -19,6 +19,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 
 import { RoutingModule } from './routing/routing.module';
 import { StageFilterComponent } from './stage-filter/stage-filter.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 
 
@@ -30,7 +31,8 @@ import { StageFilterComponent } from './stage-filter/stage-filter.component';
     GroupListComponent,
     TaskListComponent,
     RegisterComponent,
-    StageFilterComponent
+    StageFilterComponent,
+    TaskFormComponent
   ],
   imports: [
     NgbModule,

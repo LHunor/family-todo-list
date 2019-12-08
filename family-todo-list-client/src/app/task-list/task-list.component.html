@@ -28,3 +28,8 @@
 </div>
 
 <stage-filter [stage]="selectedStage" (onChange)="onFilterChange($event)"></stage-filter>
+
+<button mat-raised-button color="primary" (click)="onNewClick()">New Task</button>
+<div class="col" *ngIf="selectedTask">
+  <task-form [task]="selectedTask" (onSubmit)="onFormSubmit($event)"></task-form>
+</div>

@@ -40,6 +40,25 @@ export class TaskListComponent implements OnInit {
     })
   }
 
+  onNewClick(): void {
+    this.selectedTask = new Task();
+  }
+
+  async onFormSubmit(task: Task): Promise<void> {
+    if (task.id > 0) {
+      await this.taskService.updateTask(task)
+      this.selectedTask.title = task.title;
+      this.selectedTask.description = task.description;;
+    } else {
+      this.selectedTask.id = Math.floor(Math.random()*1000000);
+      this.selectedTask.title = task.title;
+      this.selectedTask.description = task.description;
+      this.selectedTask.stage = "NEW";
+      this.taskService.createTask(task).then(createdTask => { this.tasks.push(createdTask)});
+    }
+    this.selectedTask = null;
+  }
+
   private filter():void {
   	this.filteredTasks = this.selectedStage === ''
   	? this.tasks : this.tasks.filter(task => task.stage === this.selectedStage);
