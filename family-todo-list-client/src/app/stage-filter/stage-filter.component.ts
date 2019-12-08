@@ -1,21 +1,27 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Stage } from '../stage';
+import { StageService } from '../stage.service';
 
 @Component({
   selector: 'stage-filter',
   templateUrl: './stage-filter.component.html',
   styleUrls: [ './stage-filter.component.css' ]
 })
-export class StageFilterComponent  {
+export class StageFilterComponent implements OnInit {
 
-  @Input('stage') selectedStage: string = '';
-  public stages: string[] = [ 'New', 'In Progress', 'Canceled', 'Done' ];
+  @Input('stage') selectedStage: Stage = null;
+  public stages: Stage[];
   @Output() onChange = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private stageService: StageService) { }
 
-  onFilterChange(stage: string): void {
+  async ngOnInit(): Promise<void> {
+    this.stages = await this.stageService.getStages();
+  }
+
+  onFilterChange(stage: Stage): void {
     this.selectedStage = stage;
-    this.onChange.emit(stage);
+    this.onChange.emit(stage.name);
   }
 
 }

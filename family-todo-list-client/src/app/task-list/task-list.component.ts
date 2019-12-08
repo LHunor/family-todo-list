@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from "../task";
 import { TaskService } from "../task.service";
+import { Stage } from '../stage';
 
 @Component({
   selector: 'app-task-list',
@@ -9,7 +10,7 @@ import { TaskService } from "../task.service";
 })
 export class TaskListComponent implements OnInit {
   filteredTasks: Task[];
-  selectedStage: string;
+  selectedStage: Stage;
   selectedTask: Task;
 
   tasks: Task[] = [];
@@ -17,17 +18,18 @@ export class TaskListComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   async ngOnInit(): Promise<void> {
-    this.selectedStage = '';
+    this.selectedStage = null;
     this.tasks = await this.taskService.getTasks();
   	this.filter();
   }
 
-  onFilterChange(stage: string) {
+  onFilterChange(stage: Stage) {
   	this.selectedStage = stage;
   	this.filter();
   }
 
   onSelectTask(task: Task) {
+    if (this.selectedTask == task) this.selectedTask = null;
   	this.selectedTask = task;
   }
 
@@ -53,14 +55,14 @@ export class TaskListComponent implements OnInit {
       this.selectedTask.id = Math.floor(Math.random()*1000000);
       this.selectedTask.title = task.title;
       this.selectedTask.description = task.description;
-      this.selectedTask.stage = "NEW";
+      this.selectedTask.stage = new Stage("NEW");
       this.taskService.createTask(task).then(createdTask => { this.tasks.push(createdTask)});
     }
     this.selectedTask = null;
   }
 
   private filter():void {
-  	this.filteredTasks = this.selectedStage === ''
+  	this.filteredTasks = this.selectedStage == null
   	? this.tasks : this.tasks.filter(task => task.stage === this.selectedStage);
   }
 
