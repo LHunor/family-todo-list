@@ -2,7 +2,7 @@
     <mat-button-toggle value="">
       ALL
     </mat-button-toggle>
-    <mat-button-toggle value="{{ stage }}"  *ngFor="let stage of stages">
+    <mat-button-toggle value="{{ stage.name }}"  *ngFor="let stage of stages">
       {{ stage.name }}
     </mat-button-toggle>
   </mat-button-toggle-group>

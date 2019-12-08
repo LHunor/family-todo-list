@@ -9,7 +9,7 @@ import { StageService } from '../stage.service';
 })
 export class StageFilterComponent implements OnInit {
 
-  @Input('stage') selectedStage: Stage = null;
+  @Input('stage') selectedStage: string = '';
   public stages: Stage[];
   @Output() onChange = new EventEmitter<string>();
 
@@ -17,11 +17,12 @@ export class StageFilterComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.stages = await this.stageService.getStages();
+    console.log(this.stages);
   }
 
-  onFilterChange(stage: Stage): void {
+  onFilterChange(stage: string): void {
     this.selectedStage = stage;
-    this.onChange.emit(stage.name);
+    this.onChange.emit(stage);
   }
 
 }

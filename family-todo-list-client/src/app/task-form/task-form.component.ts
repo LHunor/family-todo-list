@@ -1,6 +1,9 @@
 import { Component, OnChanges, Input, Output, EventEmitter  } from '@angular/core'; 
 import { Task } from '../task';
 import { NgForm } from '@angular/forms';
+import { StageService } from '../stage.service';
+import { Stage } from '../stage';
+import { resolve } from 'url';
 
 @Component({
   selector: 'task-form',
@@ -13,7 +16,13 @@ export class TaskFormComponent implements OnChanges {
   public model: Task
   @Output() onSubmit = new EventEmitter<Task>();
 
-  constructor() { }
+  private stages: Stage[];
+
+  constructor(private stageService: StageService) { 
+    this.stageService.getStages().then(function(result) {
+      this.stages = result;
+    });
+  }
 
   ngOnChanges(): void {
     this.model = Object.assign({}, this.task);
