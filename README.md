@@ -47,26 +47,14 @@ Bejelentkezés / regisztrálás
 Taskok létrehozása, editálása, törlése
 ## Egy task törlésének folyamata
 Lehetőség van a listából elemeket törölni.
-  <div *ngIf="selectedTask">
-    <button mat-raised-button color="primary" (click)="onDeleteClick(task.id)">Delete</button>
-  </div>
-Miután kijelöltünk egy taskot, lehetőségünk van rányomni egy törlés gombra, amely hatására lefut az onDeleteClick(task.id) függvény a megfelelő id-vel.
-onDeleteClick(id: number) {
-    this.taskService.deleteTask(id)
-    .then(async () => {
-      this.selectedTask = null;
-      this.tasks = await this.taskService.getTasks();
-      this.filter();
-    })
-  }
-  Ebben a függvényben az elsősorban kitöröljük a backendből az adott elemet, majd utána újratöltjük a komponenst.
-  ## Felhasználói dokumentáció
-  ### Bejelentkezés / Regisztráció
-  Az oldalra úgy lehet bejelentkezni / regisztrálni, ha a megfelelő fülre kattintva (vagy url megadásával) eljutunk az adott formig,     ahol megadjuk az adatainkat.
-  ### Taskok kezelése
-  A task listában láthatjuk, hogy milyen feladatok vannak feljegyezve.
-  A taskokat lehet szűrni folyamatbeli állásuk szerint, ha a lista alatti gombokra kattintunk.
-  Ha törölni szeretnénk egy taskot, rá kell kattintani az adott sorra a listában, majd a megjelenő delete gombra is kattintani kell.
-  Ha updatelni szeretnénk egy taskot, akkor rá kell kattintani az adott taskra, majd a lista alatt megjelenő formot kitöltve és a submit   gombot megnyomva a lista frissűlni fog.
-  Ha létre akarunk hozni egy új taskot, akkor a new task gomb megnyomása után megint ki kell tölteni a formot és submitelni.  
+Miután kijelöltünk egy taskot, lehetőségünk van rányomni egy törlés gombra, amely hatására lefut az onDeleteClick(task.id) függvény a megfelelő id-vel.Ebben a függvényben az elsősorban kitöröljük a backendből az adott elemet, majd utána újratöltjük a komponenst.
+## Felhasználói dokumentáció
+### Bejelentkezés / Regisztráció
+Az oldalra úgy lehet bejelentkezni / regisztrálni, ha a megfelelő fülre kattintva (vagy url megadásával) eljutunk az adott formig,     ahol megadjuk az adatainkat.
+### Taskok kezelése
+A task listában láthatjuk, hogy milyen feladatok vannak feljegyezve.
+A taskokat lehet szűrni folyamatbeli állásuk szerint, ha a lista alatti gombokra kattintunk.
+Ha törölni szeretnénk egy taskot, rá kell kattintani az adott sorra a listában, majd a megjelenő delete gombra is kattintani kell.
+Ha updatelni szeretnénk egy taskot, akkor rá kell kattintani az adott taskra, majd a lista alatt megjelenő formot kitöltve és a submit   gombot megnyomva a lista frissűlni fog.
+Ha létre akarunk hozni egy új taskot, akkor a new task gomb megnyomása után megint ki kell tölteni a formot és submitelni.  
 
