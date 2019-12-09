@@ -26,6 +26,8 @@ task title, description, stage
 Mother creates a new task "wash dishes", sets deadline to 6 p.m. and assigns Son1 user to it. 
 Son1 leaves a comment "Can't do it, I have to do my Alkalmazások fejlesztése homework" and reassings the task to Son2.  
 Son2 washes the dishes and marks the task as done.
+## Használati eset diagram
+![Használati eset diagram](/images/usecase_diagram.png)
 ## Fejlesztői környezet bemutatása
 A szerver oldal IntelliJ IDE használatával készült, a kliens oldal pedig VSC-vel.
 Verziókezelőként Githubot használtunk.
